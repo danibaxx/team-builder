@@ -5,7 +5,7 @@ const Form = props => {
     name: '',
     email: '',
     role: ''
-  });
+});
 
   const handleChange = event => {
     console.log(event);
