@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Form = () => {
+const Form = props => {
   const [newTeam, setNewTeam] = useState({
     name: '',
     email: '',
@@ -9,11 +9,27 @@ const Form = () => {
 
   const handleChange = event => {
     console.log(event);
-  }
+    setNewTeam({
+      ...newTeam,
+      [event.target.name]: event.target.value
+    });
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (!newTeam.name || !newTeam.email || !newTeam.role) {
+      alert("All fields are required");
+    } else {
+      props.setNewTeam([
+        newTeam,
+        ...props.newTeam
+      ]);
+    }
+  };
 
   return(
     <div className='form-container'>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input 
           type='text' 
           name='name' 
