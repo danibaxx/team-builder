@@ -42,15 +42,17 @@ const Form = props => {
           name='email' 
           placeholder='E-mail'
           onChange={handleChange}
-          value={newTeam.email}  
+          value={newTeam.email}
         />
-        <input 
-          type='text' 
+        <select 
           name='role' 
-          placeholder='Role'
-          onChange={handleChange}
-          value={newTeam.role}  
-        />
+          onChange={handleChange} 
+          value={newTeam.role}
+        >
+          <option value='designer'>Designer Guru</option>
+          <option value='web-dev'>Frontend Developer</option>
+          <option value='backend-dev'>Backend Developer</option>
+        </select>
         <button>Add Team Member</button>
       </form>
     </div>
